@@ -1,0 +1,10 @@
+---
+- name: Deploying Web application 2
+  template:
+      src: "templates/index.j2"
+      dest: /var/www/html/index.html    
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+  become: yes

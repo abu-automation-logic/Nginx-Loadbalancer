@@ -1,0 +1,6 @@
+---
+sudoers_groups:
+  - name: admin
+    value: NOPASSWD
+  - name: vagrant
+    value: NOPASSWD

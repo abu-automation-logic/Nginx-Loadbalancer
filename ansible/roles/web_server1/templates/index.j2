@@ -1,0 +1,31 @@
+<html>
+        <head>
+                <title>Weather Application in Region 1</title>
+        </head>
+        <body bgcolor=#42dff4>
+                <h2>Weather update in London</h2>
+                <p>Temperature: <span id="temp"></span></p>
+                <p>Min Temp: <span id="min_temp"></span></p>
+                <p>Max Temp: <span id="max_temp"></span></p>
+                <p>Feels like: <span id="feels_like"></span></p>
+                <script>
+                  wLink = "https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&apikey=56bad929e851f7c317a654059c937408";
+                  var request = new XMLHttpRequest();
+                  request.open('GET',wLink,true);
+                  request.onload = function(){
+                   var obj = JSON.parse(this.response);
+                   if (request.status >= 200 && request.status < 400) {
+                    //var temp = obj.main.temp;
+                    document.getElementById('temp').innerHTML = obj.main.temp;
+                    document.getElementById('min_temp').innerHTML = obj.main.temp_min;
+                    document.getElementById('max_temp').innerHTML = obj.main.temp_max;
+                    document.getElementById('feels_like').innerHTML = obj.main.feels_like;
+                   }
+                   else{
+                    console.log("The city doesn't exist! Kindly check");
+                   }
+                  }
+                  request.send();
+                </script>
+        </body>
+</html>

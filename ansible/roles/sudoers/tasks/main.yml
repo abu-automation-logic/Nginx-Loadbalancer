@@ -1,0 +1,8 @@
+---
+- include_vars: main.yml
+- name: Update Sudoers to allow Vagrant and admin group users to sudo without password
+  template:
+    src: "templates/sudoers.j2"
+    dest: /etc/sudoers.d/sudoers
+    validate: 'visudo -cf %s'
+    mode: 0440

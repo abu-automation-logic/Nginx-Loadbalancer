@@ -1,0 +1,6 @@
+---
+webserver_ips:
+  - name: server1
+    value: 10.11.12.61
+  - name: server2
+    value: 10.11.12.62

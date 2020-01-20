@@ -1,0 +1,11 @@
+---
+- name: Ensure Nginx latest version is installed
+  apt: name=nginx state=latest
+#- name: Setup nginx default page
+#  copy:
+#    src: "default_server.conf"
+#    dest: /etc/nginx/conf.d/default_server.conf  
+- name: Start nginx
+  service:
+    name: nginx
+    state: started
